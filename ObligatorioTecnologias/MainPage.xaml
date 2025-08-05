@@ -30,6 +30,15 @@
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Fill" />
+
+
+            <Button
+                 x:Name="btnPagina1"
+                 Text="Foto y video" 
+                 SemanticProperties.Hint="Foto y video"
+                 Clicked="btnPagina1_Clicked"
+                 HorizontalOptions="Fill" />        
+
         </VerticalStackLayout>
     </ScrollView>
 
