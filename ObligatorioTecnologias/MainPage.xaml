@@ -31,7 +31,7 @@
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Fill" />
 
-
+            asdasd
             <Button
                  x:Name="btnPagina1"
                  Text="Foto y video" 
