@@ -1,4 +1,5 @@
 ﻿using ObligatorioTecnologias.Ventanas;
+using System.Threading.Tasks;
 
 namespace ObligatorioTecnologias
 {
@@ -26,6 +27,31 @@ namespace ObligatorioTecnologias
         private async void btnPagina1_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Usuarios());
+        }
+
+        private async void btnPagina2_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Cine());
+        }
+
+        private async Task btnPaginaCotizaciones_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Cotizaciones());
+        }
+
+        private async Task btnPaginaNoticias_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Noticias());
+        }
+
+        private async Task btnPaginaPatrocinadores_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Patrocinadores());
+        }
+
+        private async Task btnPaginaClima_Clicked_1(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Clima());
         }
     }
 
