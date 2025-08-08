@@ -34,22 +34,22 @@ namespace ObligatorioTecnologias
             await Navigation.PushAsync(new Cine());
         }
 
-        private async Task btnPaginaCotizaciones_Clicked(object sender, EventArgs e)
+        private async void btnPaginaCotizaciones_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Cotizaciones());
         }
 
-        private async Task btnPaginaNoticias_Clicked(object sender, EventArgs e)
+        private async void btnPaginaNoticias_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Noticias());
         }
 
-        private async Task btnPaginaPatrocinadores_Clicked(object sender, EventArgs e)
+        private async void btnPaginaPatrocinadores_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Patrocinadores());
         }
 
-        private async Task btnPaginaClima_Clicked_1(object sender, EventArgs e)
+        private async Task btnPaginaClima_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Clima());
         }

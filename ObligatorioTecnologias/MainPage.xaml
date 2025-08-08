@@ -43,12 +43,7 @@
                 SemanticProperties.Hint="Cine"
                 Clicked="btnPagina2_Clicked"
                 HorizontalOptions="Fill" />
-            <Button
-                x:Name="btnPaginaClima"
-                Text="Clima" 
-                SemanticProperties.Hint="Cotizaciones"
-                Clicked="btnPaginaClima_Clicked_1"
-                HorizontalOptions="Fill" />
+            
             <Button
                 x:Name="btnPaginaCotizaciones"
                 Text="Cotizaciones" 
@@ -74,7 +69,13 @@
                 Text="Settings" 
                 SemanticProperties.Hint="Patrocinadores"
                 Clicked="btnPaginaPatrocinadores_Clicked"
-                HorizontalOptions="Fill" />            
+                HorizontalOptions="Fill" />
+            <Button
+                x:Name="btnPaginaClima"
+                Text="Cine" 
+                SemanticProperties.Hint="Cine"
+                Clicked="btnPaginaClima_Clicked"
+                HorizontalOptions="Fill" />
 
         </VerticalStackLayout>
     </ScrollView>
