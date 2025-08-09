@@ -72,9 +72,15 @@
                 HorizontalOptions="Fill" />
             <Button
                 x:Name="btnPaginaClima"
-                Text="Cine" 
-                SemanticProperties.Hint="Cine"
+                Text="Clima" 
+                SemanticProperties.Hint="Clima"
                 Clicked="btnPaginaClima_Clicked"
+                HorizontalOptions="Fill" />
+            <Button
+                x:Name="btnPaginaLogin"
+                Text="Login" 
+                SemanticProperties.Hint="Login"
+                Clicked="btnPaginaLogin_Clicked"
                 HorizontalOptions="Fill" />
 
         </VerticalStackLayout>
