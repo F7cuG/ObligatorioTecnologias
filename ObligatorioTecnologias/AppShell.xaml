@@ -1,15 +1,49 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Shell
     x:Class="ObligatorioTecnologias.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:ObligatorioTecnologias"
-    Shell.FlyoutBehavior="Disabled"
-    Title="ObligatorioTecnologias">
+    xmlns:ventanas="clr-namespace:ObligatorioTecnologias.Ventanas"
+    Shell.NavBarIsVisible="True"
+    Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <!-- Tab bar (abajo en Android, arriba en Windows) -->
+    <TabBar>
 
+        <ShellContent
+            Title="Iniciar Sesión"
+            Route="usuarios"
+            ContentTemplate="{DataTemplate ventanas:Usuarios}" />
+
+        <ShellContent
+            Title="Clima"
+            Route="clima"
+            ContentTemplate="{DataTemplate ventanas:Clima}" />
+
+        <ShellContent
+            Title="Cotizaciones"
+            Route="cotizaciones"
+            ContentTemplate="{DataTemplate ventanas:Cotizaciones}" />
+
+        <ShellContent
+            Title="Noticias"
+            Route="noticias"
+            ContentTemplate="{DataTemplate ventanas:Noticias}" />
+
+        <ShellContent
+            Title="Cine"
+            Route="cine"
+            ContentTemplate="{DataTemplate ventanas:Cine}" />
+
+        <ShellContent
+            Title="Patrocinadores"
+            Route="patrocinadores"
+            ContentTemplate="{DataTemplate ventanas:Patrocinadores}" />
+        
+        <ShellContent
+            Title="Settings"
+            Route="settings"
+            ContentTemplate="{DataTemplate ventanas:Settings}" />
+
+    </TabBar>
 </Shell>
