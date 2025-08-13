@@ -3,23 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ObligatorioTecnologias.Ventanas.Clima"
              Title="Clima">
-    <VerticalStackLayout Padding="20" Spacing="15"
-                         HorizontalOptions="Center"
-                         VerticalOptions="Center">
-
-        <!-- Icono --> 
-        <Image x:Name="imgIcono"
-               WidthRequest="100"
-               HeightRequest="100"
-               Opacity="0" />
-
-        <!-- Texto -->
+    <VerticalStackLayout>
         <Label 
-            x:Name="lblClima"
-            Text="Cargando clima..."
-            FontSize="22"
-            TextColor="Black"
-            HorizontalTextAlignment="Center" />
-
+            Text="Welcome to .NET MAUI!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
     </VerticalStackLayout>
 </ContentPage>
