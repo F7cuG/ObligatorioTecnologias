@@ -22,7 +22,7 @@ namespace ObligatorioTecnologias.Ventanas
 
                 var response = await http.GetStringAsync(url);
                 using var jsonDoc = JsonDocument.Parse(response);
-                var root = jsonDoc.RootElement;
+                var root = jsonDoc.RootElement;  
 
                 if (!root.GetProperty("success").GetBoolean())
                 {
