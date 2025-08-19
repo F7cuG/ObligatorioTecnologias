@@ -13,7 +13,7 @@
             <Button Text="Buscar" Clicked="OnBuscarClicked"/>
         </HorizontalStackLayout>
 
-        <!-- Lista de noticias -->
+        <!-- Lista -->
         <CollectionView x:Name="NoticiasCollection" SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
