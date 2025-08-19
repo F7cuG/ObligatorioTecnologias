@@ -1,5 +1,4 @@
 ﻿using Foundation;
-using ObligatorioTecnologias.Models;
 
 namespace ObligatorioTecnologias
 {

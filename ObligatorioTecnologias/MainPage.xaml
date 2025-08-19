@@ -1,9 +1,89 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ObligatorioTecnologias.MainPage"
-             Title="Usuarios">
+             x:Class="ObligatorioTecnologias.MainPage">
 
-  
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Image
+                Source="dotnet_bot.png"
+                HeightRequest="185" 
+                Aspect="AspectFit"
+                SemanticProperties.Description="dot net bot in a race car number eight" />
+
+            <Label
+                Text="Hello, World!"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Label
+                Text="Welcome to &#10;.NET Multi-platform App UI"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Contador de clicks" 
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Fill" />
+
+            <Button
+                 x:Name="btnPaginaUsuarios"
+                 Text="Usuarios" 
+                 SemanticProperties.Hint="Gestion de usuarios"
+                 Clicked="btnPagina1_Clicked"
+                 HorizontalOptions="Fill" />
+            <Button
+                x:Name="btnPaginaCine"
+                Text="Cine" 
+                SemanticProperties.Hint="Cine"
+                Clicked="btnPagina2_Clicked"
+                HorizontalOptions="Fill" />
+            
+            <Button
+                x:Name="btnPaginaCotizaciones"
+                Text="Cotizaciones" 
+                SemanticProperties.Hint="Cotizaciones"
+                Clicked="btnPaginaCotizaciones_Clicked"
+                HorizontalOptions="Fill" />
+            <Button
+                x:Name="btnPaginaNoticias"
+                Text="Noticias" 
+                SemanticProperties.Hint="Noticias"
+                Clicked="btnPaginaNoticias_Clicked"
+                HorizontalOptions="Fill" />
+
+            <Button
+                x:Name="btnPaginaPatrocinadores"
+                Text="Patrocinadores" 
+                SemanticProperties.Hint="Patrocinadores"
+                Clicked="btnPaginaPatrocinadores_Clicked"
+                HorizontalOptions="Fill" />
+            
+            <Button
+                x:Name="btnPaginaSettings"
+                Text="Settings" 
+                SemanticProperties.Hint="Patrocinadores"
+                Clicked="btnPaginaPatrocinadores_Clicked"
+                HorizontalOptions="Fill" />
+            <Button
+                x:Name="btnPaginaClima"
+                Text="Clima" 
+                SemanticProperties.Hint="Clima"
+                Clicked="btnPaginaClima_Clicked"
+                HorizontalOptions="Fill" />
+            <Button
+                x:Name="btnPaginaLogin"
+                Text="Login" 
+                SemanticProperties.Hint="Login"
+                Clicked="btnPaginaLogin_Clicked"
+                HorizontalOptions="Fill" />
+
+        </VerticalStackLayout>
+    </ScrollView>
 
 </ContentPage>

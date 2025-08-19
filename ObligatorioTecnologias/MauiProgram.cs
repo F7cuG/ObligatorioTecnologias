@@ -1,6 +1,4 @@
 ﻿using Microsoft.Extensions.Logging;
-using System.IO;
-using ObligatorioTecnologias.Services; // 👈 Asegurate de tener esta carpeta y el DatabaseService.cs
 
 namespace ObligatorioTecnologias
 {
@@ -18,12 +16,8 @@ namespace ObligatorioTecnologias
                 });
 
 #if DEBUG
-            builder.Logging.AddDebug();
+    		builder.Logging.AddDebug();
 #endif
-
-            //DBcode
-            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "app.db3");
-            builder.Services.AddSingleton(s => new DatabaseService(dbPath));
 
             return builder.Build();
         }

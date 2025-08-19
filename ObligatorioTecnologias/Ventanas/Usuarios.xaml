@@ -2,44 +2,18 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ObligatorioTecnologias.Ventanas.Usuarios"
-             Title="Gestión de Usuarios">
+             Title="Iniciar Sesión">
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome to .NET MAUI!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
 
-    <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="15">
-
-            <Label Text="Gestión de Usuarios"
-                   FontSize="24"
-                   HorizontalOptions="Center" />
-
-            <!-- Entradas para nuevo usuario -->
-            <Entry x:Name="entryNombre"
-                   Placeholder="Nombre" />
-
-            <Entry x:Name="entryEdad"
-                   Placeholder="Edad"
-                   Keyboard="Numeric" />
-
-            <!-- Botón para guardar -->
-            <Button Text="Guardar Usuario"
-                    Clicked="btnGuardar_Clicked" />
-
-            <!-- Lista de usuarios -->
-            <Label Text="Lista de Usuarios:" 
-                   FontAttributes="Bold"
-                   Margin="0,20,0,0"/>
-
-            <CollectionView x:Name="usuariosCollectionView"
-                            HeightRequest="300">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout Orientation="Horizontal" Spacing="10">
-                            <Label Text="{Binding Nombre}" FontSize="18"/>
-                            <Label Text="{Binding Edad}" FontSize="18"/>
-                        </StackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-
-        </VerticalStackLayout>
-    </ScrollView>
+        <Button
+              x:Name="btnGPS"
+              Text="GPS" 
+              SemanticProperties.Hint="GPSS"
+              Clicked="btnGPS_Clicked"
+              HorizontalOptions="Fill" />
+    </VerticalStackLayout>
 </ContentPage>
