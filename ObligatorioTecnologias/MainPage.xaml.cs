@@ -1,4 +1,5 @@
 ﻿using ObligatorioTecnologias.Ventanas;
+using ObligatorioTecnologias.Services;
 using Plugin.Fingerprint;
 using Plugin.Fingerprint.Abstractions;
 
@@ -7,27 +8,20 @@ namespace ObligatorioTecnologias
     public partial class MainPage : ContentPage
     {
         int count = 0;
+        private readonly DatabaseService _db;
 
-        public MainPage()
+        // Inyectamos DatabaseService
+        public MainPage(DatabaseService db)
         {
             InitializeComponent();
+            _db = db;
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
-        {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
-        }
-
+        // Navegación a páginas
         private async void btnPagina1_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Usuarios());
+            // Pasamos el servicio a la página de usuarios
+            await Navigation.PushAsync(new Usuarios(_db));
         }
 
         private async void btnPagina2_Clicked(object sender, EventArgs e)
@@ -55,7 +49,6 @@ namespace ObligatorioTecnologias
             await Navigation.PushAsync(new Clima());
         }
 
-
         private async void btnPaginaLogin_Clicked(object sender, EventArgs e)
         {
             try
@@ -67,17 +60,15 @@ namespace ObligatorioTecnologias
                 if (resul.Authenticated)
                 {
                     await DisplayAlert("Éxito", "La operación se completó correctamente.", "OK");
-
                 }
                 else
                 {
-                    await DisplayAlert("Error de autenticacion", "tiene huella", "cerrar");
+                    await DisplayAlert("Error de autenticación", "No se pudo autenticar.", "Cerrar");
                 }
-
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Activar Login", "Activariamos login", "cerrar");
+                await DisplayAlert("Activar Login", "Se produjo un error al activar el login.", "Cerrar");
             }
         }
     }
