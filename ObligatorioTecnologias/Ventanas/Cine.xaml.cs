@@ -1,5 +1,8 @@
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using Microsoft.Maui.ApplicationModel;
+
 
 namespace ObligatorioTecnologias.Ventanas;
 
@@ -58,9 +61,12 @@ public partial class Cine : ContentPage
 
     private void OnBuscarClicked(object sender, EventArgs e)
     {
-        var filtro = BusquedaEntry.Text?.Trim() ?? "";
+        // Buscamos el Entry por nombre dentro del árbol visual
+        var entry = this.FindByName<Entry>("BusquedaEntry");
+        var filtro = entry?.Text?.Trim() ?? "";
         CargarProximosEstrenos(filtro);
     }
+
     public class TMDBResponse
     {
         public List<Pelicula> results { get; set; }
@@ -75,5 +81,24 @@ public partial class Cine : ContentPage
 
         [JsonIgnore]
         public string poster_full_url { get; set; }
+    }
+    private async void OnPeliculaSeleccionada(object sender, SelectionChangedEventArgs e)
+    {
+        // Permite toques sucesivos en el mismo item
+        var seleccion = PeliculasCollection.SelectedItem as Pelicula;
+        PeliculasCollection.SelectedItem = null;
+
+        if (seleccion == null)
+            return;
+
+        // Acción simple: abrir la ficha en TMDB
+        // ID no está en tu modelo actual; abrimos la búsqueda por título como fallback.
+        // Si luego agregás el Id de TMDB, cambiamos a la URL directa /movie/{id}.
+        var query = Uri.EscapeDataString(seleccion.title ?? string.Empty);
+        var url = $"https://www.themoviedb.org/search/movie?query={query}";
+
+        var opcion = await DisplayActionSheet(seleccion.title, "Cancelar", null, "Abrir en TMDB");
+        if (opcion == "Abrir en TMDB")
+            await Launcher.OpenAsync(url);
     }
 }

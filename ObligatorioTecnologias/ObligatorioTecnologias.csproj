@@ -57,6 +57,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="Models\**" />
+	  <Compile Remove="Models\**" />
+	  <EmbeddedResource Remove="Models\**" />
+	  <MauiCss Remove="Models\**" />
+	  <MauiXaml Remove="Models\**" />
+	  <None Remove="Models\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Include="Models\Usuario.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />

@@ -4,31 +4,80 @@
              x:Class="ObligatorioTecnologias.Ventanas.Cine"
              Title="Próximos Estrenos">
 
-    <VerticalStackLayout Padding="10" Spacing="10">
+    <!-- Un solo contenedor raíz -->
+    <Grid Padding="10" RowDefinitions="Auto,*">
 
         <!-- Barra de búsqueda -->
-        <HorizontalStackLayout Spacing="5">
+        <HorizontalStackLayout Grid.Row="0" Spacing="5">
             <Entry x:Name="BusquedaEntry"
                    Placeholder="Buscar por palabra clave o género"
                    HorizontalOptions="FillAndExpand"/>
             <Button Text="Buscar" Clicked="OnBuscarClicked"/>
         </HorizontalStackLayout>
 
-        <!-- Listas -->
-        <CollectionView x:Name="PeliculasCollection" SelectionMode="None">
+        <!-- Lista (UNA sola CollectionView) -->
+        <CollectionView x:Name="PeliculasCollection"
+                Grid.Row="1"
+                ItemsLayout="VerticalGrid, 3"
+                ItemSizingStrategy="MeasureFirstItem"
+                VerticalOptions="FillAndExpand"
+                VerticalScrollBarVisibility="Always"
+                SelectionMode="Single"
+                SelectionChanged="OnPeliculaSeleccionada"
+                EmptyView="Busque una película o género">
+
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame BorderColor="LightGray" CornerRadius="8" Padding="10" Margin="0,5">
-                        <VerticalStackLayout Spacing="5">
-                            <Label Text="{Binding title}" FontAttributes="Bold" FontSize="18"/>
-                            <Image Source="{Binding poster_full_url}" Aspect="AspectFill" HeightRequest="200"/>
-                            <Label Text="{Binding overview}" FontSize="14" LineBreakMode="WordWrap" MaxLines="5"/>
-                            <Label Text="{Binding release_date}" FontAttributes="Italic" FontSize="12"/>
-                        </VerticalStackLayout>
+                    <Frame BorderColor="LightGray"
+       CornerRadius="10"
+       Padding="6"
+       Margin="6"
+       HasShadow="False">
+
+                        <Grid RowDefinitions="Auto,Auto"
+          RowSpacing="6"
+          HorizontalOptions="Fill">
+
+                            <!-- Poster con esquinas redondeadas (tu opción 2) -->
+                            <Border Grid.Row="0" Padding="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+                                <Image Source="{Binding poster_full_url}"
+                   Aspect="AspectFill"
+                   HeightRequest="160"
+                   HorizontalOptions="Fill"
+                   VerticalOptions="Start" />
+                            </Border>
+
+
+                            <VerticalStackLayout Grid.Row="1"
+                             Spacing="2"
+                             Padding="8,0,8,0"
+                             HorizontalOptions="Fill">
+
+
+                                <Label Text="{Binding title}"
+                   FontAttributes="Bold"
+                   FontSize="13"
+                   LineBreakMode="TailTruncation"
+                   MaxLines="2"
+                   HorizontalTextAlignment="Start" />
+
+
+                                <Label Text="{Binding overview}"
+                   FontSize="12"
+                   Opacity="0.85"
+                   LineBreakMode="TailTruncation"
+                   MaxLines="3"
+                   HorizontalTextAlignment="Start" />
+                            </VerticalStackLayout>
+                        </Grid>
                     </Frame>
+
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-    </VerticalStackLayout>
+    </Grid>
 </ContentPage>
