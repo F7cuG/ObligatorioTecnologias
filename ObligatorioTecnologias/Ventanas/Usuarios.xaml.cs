@@ -92,5 +92,11 @@ public partial class Usuarios : ContentPage
         entryNombreUsuario.Text = entryContrasena.Text = entryNombreCompleto.Text = entryDireccion.Text = entryTelefono.Text = entryEmail.Text = string.Empty;
         imgFotoPerfil.Source = null;
         _fotoPerfilPath = string.Empty;
+        Preferences.Set("UsuarioActual", usuario.NombreUsuario);
+    }
+
+    private async void OnVolverClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushModalAsync(new LoginPage());
     }
 }

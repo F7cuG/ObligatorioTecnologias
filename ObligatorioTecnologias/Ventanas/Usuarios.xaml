@@ -21,6 +21,7 @@
             </HorizontalStackLayout>
 
             <Button Text="Registrar" Clicked="OnRegistrarClicked" />
+            <Button Text="Volver" Clicked="OnVolverClicked" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

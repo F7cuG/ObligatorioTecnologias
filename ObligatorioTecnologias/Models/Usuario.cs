@@ -16,10 +16,13 @@ namespace ObligatorioTecnologias.Models
         [NotNull]
         public string NombreCompleto { get; set; } = string.Empty;
 
+        [NotNull]
         public string Direccion { get; set; } = string.Empty;
 
+        [NotNull]
         public string Telefono { get; set; } = string.Empty;
 
+        [NotNull]
         public string Email { get; set; } = string.Empty;
 
         

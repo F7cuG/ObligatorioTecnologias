@@ -93,6 +93,9 @@
 	  <MauiXaml Update="Ventanas\Cotizaciones.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Ventanas\LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Ventanas\Noticias.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

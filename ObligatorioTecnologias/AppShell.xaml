@@ -9,12 +9,6 @@
 
     <!-- Tab bar (abajo en Android, arriba en Windows) -->
     <TabBar>
-
-        <ShellContent
-            Title="Iniciar Sesión"
-            Route="usuarios"
-            ContentTemplate="{DataTemplate ventanas:Usuarios}" />
-
         <ShellContent
             Title="Clima"
             Route="clima"
