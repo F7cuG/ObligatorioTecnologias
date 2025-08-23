@@ -4,40 +4,27 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ventanas="clr-namespace:ObligatorioTecnologias.Ventanas"
-    Shell.NavBarIsVisible="True"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Flyout">
 
-    <!-- Tab bar (abajo en Android, arriba en Windows) -->
-    <TabBar>
-        <ShellContent
-            Title="Clima"
-            Route="clima"
-            ContentTemplate="{DataTemplate ventanas:Clima}" />
-
-        <ShellContent
-            Title="Cotizaciones"
-            Route="cotizaciones"
-            ContentTemplate="{DataTemplate ventanas:Cotizaciones}" />
-
-        <ShellContent
-            Title="Noticias"
-            Route="noticias"
-            ContentTemplate="{DataTemplate ventanas:Noticias}" />
-
-        <ShellContent
-            Title="Cine"
-            Route="cine"
-            ContentTemplate="{DataTemplate ventanas:Cine}" />
-
-        <ShellContent
-            Title="Patrocinadores"
-            Route="patrocinadores"
-            ContentTemplate="{DataTemplate ventanas:Patrocinadores}" />
-
-        <ShellContent
-            Title="Settings"
-            Route="settings"
-            ContentTemplate="{DataTemplate ventanas:Settings}" />
-
-    </TabBar>
+    <FlyoutItem Title="Home" Route="home" Icon="homelogo.png">
+        <ShellContent ContentTemplate="{DataTemplate ventanas:Home}"  />
+    </FlyoutItem>
+    <FlyoutItem Title="Clima" Route="clima" Icon="climalogo.png">
+        <ShellContent ContentTemplate="{DataTemplate ventanas:Clima}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Cotizaciones" Route="cotizaciones" Icon="cotizacioneslogo.png">
+        <ShellContent ContentTemplate="{DataTemplate ventanas:Cotizaciones}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Noticias" Route="noticias" Icon="noticiaslogo.png">
+        <ShellContent ContentTemplate="{DataTemplate ventanas:Noticias}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Cine" Route="cine" Icon="cinelogo.png" >
+        <ShellContent ContentTemplate="{DataTemplate ventanas:Cine}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Patrocinadores" Route="patrocinadores" Icon="patrocinadoreslogo.png" >
+        <ShellContent ContentTemplate="{DataTemplate ventanas:Patrocinadores}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Settings" Route="settings" Icon="settingslogo.png">
+        <ShellContent ContentTemplate="{DataTemplate ventanas:Settings}" />
+    </FlyoutItem>
 </Shell>

@@ -23,7 +23,36 @@
                        TextColor="{DynamicResource Gray500}"
                        HorizontalOptions="Center"/>
             </VerticalStackLayout>
-            <!-- Aquí puedes agregar más opciones de configuración -->
+            <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Start">
+                <Label Text="Preferencias de contenido" FontSize="24" FontAttributes="Bold" TextColor="Aquamarine" />
+
+                <Grid ColumnDefinitions="Auto,*" Padding="0,5">
+                    <Label Text="Noticias" Grid.Column="0" VerticalOptions="Center" />
+                    <Switch x:Name="switchNoticias" Grid.Column="1" HorizontalOptions="End" IsToggled="True" VerticalOptions="Center"  OnColor="Aqua" ThumbColor="Aquamarine" />
+                </Grid>
+
+                <Grid ColumnDefinitions="Auto,*" Padding="0,5">
+                    <Label Text="Cine" Grid.Column="0" VerticalOptions="Center" />
+                    <Switch x:Name="switchCine" Grid.Column="1" HorizontalOptions="End" IsToggled="True" VerticalOptions="Center" OnColor="Aqua" ThumbColor="Aquamarine" />
+                </Grid>
+
+                <Grid ColumnDefinitions="Auto,*" Padding="0,5">
+                    <Label Text="Clima" Grid.Column="0" VerticalOptions="Center" />
+                    <Switch x:Name="switchClima" Grid.Column="1" HorizontalOptions="End" IsToggled="True" VerticalOptions="Center" OnColor="Aqua" ThumbColor="Aquamarine"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="Auto,*" Padding="0,5">
+                    <Label Text="Cotizaciones" Grid.Column="0" VerticalOptions="Center" />
+                    <Switch x:Name="switchCotizaciones" Grid.Column="1" HorizontalOptions="End" IsToggled="True" VerticalOptions="Center" OnColor="Aqua" ThumbColor="Aquamarine" />
+                </Grid>
+
+                <Grid ColumnDefinitions="Auto,*" Padding="0,5">
+                    <Label Text="Patrocinadores" Grid.Column="0" VerticalOptions="Center" />
+                    <Switch x:Name="switchPatrocinadores" Grid.Column="1" HorizontalOptions="End" IsToggled="True" VerticalOptions="Center" OnColor="Aqua" ThumbColor="Aquamarine"/>
+                </Grid>
+
+                <Button Text="Actualizar preferencias" Clicked="btnActualizarPreferencias_Clicked" Margin="0,20,0,0"/>
+            </VerticalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

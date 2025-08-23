@@ -33,4 +33,20 @@ public partial class Settings : ContentPage
 			? "usuario_defecto.png"
 			: usuario.FotoPerfil;
 	}
+
+    private void btnActualizarPreferencias_Clicked(object sender, EventArgs e)
+    {
+        Preferences.Set("Pref_Noticias", switchNoticias.IsToggled);
+        Preferences.Set("Pref_Cine", switchCine.IsToggled);
+        Preferences.Set("Pref_Clima", switchClima.IsToggled);
+        Preferences.Set("Pref_Cotizaciones", switchCotizaciones.IsToggled);
+        Preferences.Set("Pref_Patrocinadores", switchPatrocinadores.IsToggled);
+
+        if (Application.Current.MainPage is AppShell shell)
+            shell.AplicarPreferencias();
+
+        DisplayAlert("Preferencias", "Su contenido ha sido actualizado. Active y desactive las opciones para personalizar su preferencia de contenido", "OK");
+    }
+
+
 }
