@@ -4,7 +4,6 @@
              x:Class="ObligatorioTecnologias.Ventanas.Home"
              Title="Home">
     <VerticalStackLayout Padding="30" Spacing="20">
-        <!-- Imagen superior (logo de la radio o lo que prefieras) -->
         <Image Source="fmlogo.png" HeightRequest="400" HorizontalOptions="Center"/>
 
         <Label Text="FM Punta" 
@@ -13,10 +12,26 @@
                FontAttributes="Bold"
                CharacterSpacing="3"
                HorizontalOptions="Center"
-               TextColor="DarkCyan"/>
+               TextColor="#1565C0"/>
 
-        <!-- Reproductor de audio embebido -->
-        <WebView x:Name="webRadio" HeightRequest="80" WidthRequest="300" BackgroundColor="DarkGrey"/>
+        <WebView x:Name="webRadio" HeightRequest="80" WidthRequest="300" BackgroundColor="#64B5F6"/>
 
+        <HorizontalStackLayout Spacing="12" HorizontalOptions="Center">
+            <Button Text="▶️ Play" BackgroundColor="#1976D2" TextColor="White"/>
+            <Button Text="⏸️ Pausa" BackgroundColor="#2196F3" TextColor="White"/>
+            <Button Text="⏹️ Stop" BackgroundColor="#64B5F6" TextColor="White"/>
+        </HorizontalStackLayout>
+
+        <StackLayout>
+            <Label Text="Volumen" TextColor="#1565C0"/>
+            <Slider x:Name="VolumeSlider" Minimum="0" Maximum="1" Value="0.8"
+                    ThumbColor="#1976D2" MinimumTrackColor="#2196F3" MaximumTrackColor="#BBDEFB"/>
+        </StackLayout>
+
+        <Label x:Name="StatusLabel"
+               Text="Listo"
+               HorizontalOptions="Center"
+               FontAttributes="Italic"
+               TextColor="#1976D2"/>
     </VerticalStackLayout>
 </ContentPage>
