@@ -67,7 +67,6 @@
 
 	<ItemGroup>
 	  <Compile Include="Models\Patrocinador.cs" />
-	  <Compile Include="Models\Patrocinadores.cs" />
 	  <Compile Include="Models\Usuario.cs" />
 	</ItemGroup>
 

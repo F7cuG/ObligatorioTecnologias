@@ -1,33 +1,31 @@
-﻿using ObligatorioTecnologias.Models;
-using SQLite;
+﻿using SQLite;
+using ObligatorioTecnologias.Modelos;
 
-namespace ObligatorioTecnologias.Services
+namespace ObligatorioTecnologias.Data
 {
-    public static class PatrocinadorService
+    public class PatrocinadorService
     {
-        static SQLiteAsyncConnection db;
+        private readonly SQLiteAsyncConnection _db;
 
-        static async Task Init()
+        public PatrocinadorService(string dbPath)
         {
-            if (db != null)
-                return;
-
-            var databasePath = Path.Combine(FileSystem.AppDataDirectory, "obligatorio.db");
-            db = new SQLiteAsyncConnection(databasePath);
-            await db.CreateTableAsync<Patrocinador>();
+            _db = new SQLiteAsyncConnection(dbPath);
+            _db.CreateTableAsync<Patrocinador>().Wait();
         }
 
-        public static async Task SavePatrocinadorAsync(Patrocinador patrocinador)
+        public Task<int> AddPatrocinadorAsync(Patrocinador patrocinador)
         {
-            await Init();
-            await db.InsertAsync(patrocinador);
+            return _db.InsertAsync(patrocinador);
         }
 
-        public static async Task<List<Patrocinador>> GetPatrocinadoresAsync()
+        public Task<List<Patrocinador>> GetPatrocinadoresAsync()
         {
-            await Init();
-            return await db.Table<Patrocinador>().ToListAsync();
+            return _db.Table<Patrocinador>().ToListAsync();
+        }
+
+        public Task<Patrocinador?> GetPatrocinadorByIdAsync(int id)
+        {
+            return _db.Table<Patrocinador>().Where(p => p.Id == id).FirstOrDefaultAsync();
         }
     }
 }
-
