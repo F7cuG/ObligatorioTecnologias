@@ -3,6 +3,7 @@ using ObligatorioTecnologias.Services;
 using Microsoft.Maui.Controls;
 using System;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.Maui.ApplicationModel;
 using Microsoft.Maui.Storage;
@@ -79,6 +80,21 @@ public partial class Usuarios : ContentPage
             return;
         }
 
+        if (string.IsNullOrWhiteSpace(usuario.Email) ||
+            !Regex.IsMatch(usuario.Email, @"^[^@\s]+@[^@\s]+\.[cC][oO][mM]$"))
+        {
+            await DisplayAlert("Error", "Ingrese un email válido (debe contener @ y terminar en .com).", "OK");
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(usuario.Telefono) ||
+            !Regex.IsMatch(usuario.Telefono, @"^09\d{7}$"))
+        {
+            await DisplayAlert("Error", "Ingrese un número de celular uruguayo válido (ej: 09XXXXXXX).", "OK");
+            return;
+        }
+
+        // Validación de usuario existente
         var existente = await UsuarioService.GetUsuarioByNombreAsync(usuario.NombreUsuario);
         if (existente != null)
         {
@@ -88,8 +104,10 @@ public partial class Usuarios : ContentPage
 
         await UsuarioService.SaveUsuarioAsync(usuario);
         await DisplayAlert("Éxito", "Usuario registrado correctamente.", "OK");
+
         // Limpiar formulario
-        entryNombreUsuario.Text = entryContrasena.Text = entryNombreCompleto.Text = entryDireccion.Text = entryTelefono.Text = entryEmail.Text = string.Empty;
+        entryNombreUsuario.Text = entryContrasena.Text = entryNombreCompleto.Text =
+        entryDireccion.Text = entryTelefono.Text = entryEmail.Text = string.Empty;
         imgFotoPerfil.Source = null;
         _fotoPerfilPath = string.Empty;
         Preferences.Set("UsuarioActual", usuario.NombreUsuario);
