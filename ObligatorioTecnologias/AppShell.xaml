@@ -27,4 +27,8 @@
     <FlyoutItem Title="Settings" Route="settings" Icon="settingslogo.png">
         <ShellContent ContentTemplate="{DataTemplate ventanas:Settings}" />
     </FlyoutItem>
+
+    <FlyoutItem Title="Patrocinadores*" Route="patrocinadoresoffline" Icon="patrocinadoreslogo.png">
+        <ShellContent ContentTemplate="{DataTemplate ventanas:PatrocinadoresOffline}" />
+    </FlyoutItem>
 </Shell>

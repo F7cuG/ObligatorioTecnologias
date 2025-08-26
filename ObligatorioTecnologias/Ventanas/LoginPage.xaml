@@ -7,5 +7,7 @@
         <Entry x:Name="entryContrasena" Placeholder="Contraseña" IsPassword="True" />
         <Button Text="Iniciar Sesión" Clicked="OnLoginClicked"/>
         <Button Text="Registrarse" Clicked="OnRegisterClicked"/>
+
+        <Button x:Name="btnHuella" Text="Iniciar con Huella" Clicked="OnHuellaClicked" IsVisible="True"/>
     </VerticalStackLayout>
 </ContentPage>
