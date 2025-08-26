@@ -1,5 +1,3 @@
-using Microsoft.Maui.Controls;
-
 namespace ObligatorioTecnologias.Ventanas;
 
 public partial class PatrocinadoresOffline : ContentPage
@@ -11,20 +9,16 @@ public partial class PatrocinadoresOffline : ContentPage
 
     private async void OnPointerElDoradoClicked(object sender, EventArgs e)
     {
-        await DisplayAlert("El Dorado",
-            "DIRECCION\n\nLavalleja casi Joaquín de Viana\n", "Cerrar");
-        
+        await DisplayAlert("Patrocinador", "Shopping El Dorado\nDirección: Av. Roosevelt, Punta del Este", "OK");
     }
 
     private async void OnPointerPepsiClicked(object sender, EventArgs e)
     {
-        await DisplayAlert("Pepsi",
-            "DIRECCION\n\nSerguini Mosquera 2442\n", "Cerrar");
+        await DisplayAlert("Patrocinador", "Pepsi Uruguay\nDirección: Montevideo", "OK");
     }
 
     private async void OnPointerBBVAClicked(object sender, EventArgs e)
     {
-        await DisplayAlert("BBVA",
-            "DIRECCION\n\n6 de Julio casi Roosevelt\n", "Cerrar");
+        await DisplayAlert("Patrocinador", "BBVA Uruguay\nDirección: 18 de Julio 1234, Montevideo", "OK");
     }
 }

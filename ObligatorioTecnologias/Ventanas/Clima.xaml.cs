@@ -64,15 +64,12 @@ namespace ObligatorioTecnologias.Ventanas
 
         async Task CargarPronostico5DiasAsync()
         {
-            // 1) Pedimos el forecast de OpenWeather (devuelve datos cada 3 horas)
             var url = $"https://api.openweathermap.org/data/2.5/forecast?q={Uri.EscapeDataString(Ciudad)}&appid={ApiKey}&units=metric&lang=es";
             var json = await http.GetStringAsync(url);
 
-            // 2) Parseamos la respuesta
             using var doc = JsonDocument.Parse(json);
-            var arr = doc.RootElement.GetProperty("list"); // “list” = array de registros 3h
+            var arr = doc.RootElement.GetProperty("list"); 
 
-            // 3) Agrupamos esos registros por DÍA calendario
             var porDia = new Dictionary<DateTime, List<JsonElement>>();
             foreach (var it in arr.EnumerateArray())
             {
@@ -81,16 +78,14 @@ namespace ObligatorioTecnologias.Ventanas
                 l.Add(it);
             }
 
-            // 4) De cada día: tomamos Mín, Máx y elegimos un “representante” (ideal: el de 12:00)
             var items = porDia
-                .OrderBy(k => k.Key)   // ordenar por fecha
-                .Take(5)               // quedarnos con 5 días
+                .OrderBy(k => k.Key)  
+                .Take(5)               
                 .Select(kvp =>
                 {
                     var min = kvp.Value.Min(i => i.GetProperty("main").GetProperty("temp_min").GetDouble());
                     var max = kvp.Value.Max(i => i.GetProperty("main").GetProperty("temp_max").GetDouble());
 
-                    // Buscamos el registro de las 12:00; si no hay, usamos el primero del día
                     var chosen = kvp.Value.FirstOrDefault(i =>
                     {
                         var hour = DateTimeOffset.FromUnixTimeSeconds(i.GetProperty("dt").GetInt64()).Hour;
@@ -113,7 +108,6 @@ namespace ObligatorioTecnologias.Ventanas
                 })
                 .ToList();
 
-            // 5) Le damos la lista a la CollectionView para que la dibuje
             collectionPronostico.ItemsSource = items;
         }
         protected override async void OnAppearing()
@@ -121,7 +115,7 @@ namespace ObligatorioTecnologias.Ventanas
             base.OnAppearing();
             try
             {
-                activity.IsVisible = activity.IsRunning = true; // muestra el spinner
+                activity.IsVisible = activity.IsRunning = true;
                 await CargarPronostico5DiasAsync();
             }
             catch (Exception ex)
@@ -130,7 +124,7 @@ namespace ObligatorioTecnologias.Ventanas
             }
             finally
             {
-                activity.IsRunning = activity.IsVisible = false; // oculta el spinner
+                activity.IsRunning = activity.IsVisible = false; 
             }
         }
 

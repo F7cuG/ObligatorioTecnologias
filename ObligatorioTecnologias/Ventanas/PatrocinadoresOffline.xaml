@@ -13,12 +13,10 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Start">
                 <AbsoluteLayout HeightRequest="300" WidthRequest="300">
-                    <!-- Imagen mapa-->
                     <Image Source="mapa.png"
                            Aspect="AspectFill"
                            AbsoluteLayout.LayoutBounds="0,0,1,1"
                            AbsoluteLayout.LayoutFlags="All"/>
-                    <!-- Pointer El Dorado -->
                     <ImageButton Source="mappointer.png"
                                  WidthRequest="40"
                                  HeightRequest="40"
@@ -26,7 +24,6 @@
                                  Clicked="OnPointerElDoradoClicked"
                                  AbsoluteLayout.LayoutBounds="0.9,0.45,40,40"
                                  AbsoluteLayout.LayoutFlags="PositionProportional"/>
-                    <!-- Pointer Pepsi -->
                     <ImageButton Source="mappointer.png"
                                  WidthRequest="40"
                                  HeightRequest="40"
@@ -34,7 +31,6 @@
                                  Clicked="OnPointerPepsiClicked"
                                  AbsoluteLayout.LayoutBounds="0.2,0.2,40,40"
                                  AbsoluteLayout.LayoutFlags="PositionProportional"/>
-                    <!-- Pointer BBVA -->
                     <ImageButton Source="mappointer.png"
                                  WidthRequest="40"
                                  HeightRequest="40"
@@ -44,7 +40,6 @@
                                  AbsoluteLayout.LayoutFlags="PositionProportional"/>
                 </AbsoluteLayout>
             </Frame>
-            <!-- Aquí puedes agregar más contenido debajo del mapa -->
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -4,10 +4,8 @@
              x:Class="ObligatorioTecnologias.Ventanas.Cine"
              Title="Próximos Estrenos">
 
-    <!-- Un solo contenedor raíz -->
     <Grid Padding="10" RowDefinitions="Auto,*">
 
-        <!-- Barra de búsqueda -->
         <HorizontalStackLayout Grid.Row="0" Spacing="5">
             <Entry x:Name="BusquedaEntry"
                    Placeholder="Buscar por palabra clave o género"
@@ -15,7 +13,6 @@
             <Button Text="Buscar" Clicked="OnBuscarClicked"/>
         </HorizontalStackLayout>
 
-        <!-- Lista (UNA sola CollectionView) -->
         <CollectionView x:Name="PeliculasCollection"
                 Grid.Row="1"
                 ItemsLayout="VerticalGrid, 3"
@@ -38,7 +35,6 @@
           RowSpacing="6"
           HorizontalOptions="Fill">
 
-                            <!-- Poster con esquinas redondeadas (tu opción 2) -->
                             <Border Grid.Row="0" Padding="0">
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="10" />

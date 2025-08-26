@@ -91,9 +91,6 @@ public partial class Cine : ContentPage
         if (seleccion == null)
             return;
 
-        // Acción simple: abrir la ficha en TMDB
-        // ID no está en tu modelo actual; abrimos la búsqueda por título como fallback.
-        // Si luego agregás el Id de TMDB, cambiamos a la URL directa /movie/{id}.
         var query = Uri.EscapeDataString(seleccion.title ?? string.Empty);
         var url = $"https://www.themoviedb.org/search/movie?query={query}";
 

@@ -1,7 +1,9 @@
 using Microsoft.Maui.Controls.Maps;
 using Microsoft.Maui.Maps;
 using Microsoft.Maui.ApplicationModel;
-using Microsoft.Maui.Devices.Sensors; // Necesario para Geolocation
+using Microsoft.Maui.Devices.Sensors;
+using ObligatorioTecnologias.Models;
+using ObligatorioTecnologias.Services;
 
 namespace ObligatorioTecnologias.Ventanas;
 
@@ -16,25 +18,56 @@ public partial class Patrocinadores : ContentPage
     private async void MostrarMapa()
     {
         var status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
-        if (status == PermissionStatus.Granted)
+        if (status != PermissionStatus.Granted)
         {
-            MyMap.IsShowingUser = false;
+            await DisplayAlert("Permiso requerido", "Se necesita permiso de ubicación para mostrar el mapa.", "OK");
+            return;
+        }
 
-            var ubicacion = await Geolocation.Default.GetLocationAsync();
-            if (ubicacion != null)
-            {
-                var posicion = new Location(40.7128, -74.0060); // Nueva York
-                var region = MapSpan.FromCenterAndRadius(posicion, Distance.FromKilometers(3));
-                MyMap.MoveToRegion(region);
-            }
-            else
-            {
-                await DisplayAlert("Ubicación", "No se pudo obtener la ubicación actual.", "OK");
-            }
+        MyMap.IsShowingUser = true;
+
+        var ubicacion = await Geolocation.Default.GetLocationAsync();
+        Location posicion;
+
+        if (ubicacion != null)
+        {
+            posicion = new Location(ubicacion.Latitude, ubicacion.Longitude);
         }
         else
         {
-            await DisplayAlert("Permiso requerido", "Se necesita permiso de ubicación para mostrar tu posición en el mapa.", "OK");
+            posicion = new Location(-34.9011, -56.1645); // Montevideo por defecto
+        }
+
+        var region = MapSpan.FromCenterAndRadius(posicion, Distance.FromKilometers(5));
+        MyMap.MoveToRegion(region);
+
+        await CargarPatrocinadoresEnMapa();
+    }
+
+    private async Task CargarPatrocinadoresEnMapa()
+    {
+        var patrocinadores = await PatrocinadorService.GetPatrocinadoresAsync();
+
+        foreach (var p in patrocinadores)
+        {
+            if (p.Latitud == 0 && p.Longitud == 0)
+                continue;
+
+            var pin = new Pin
+            {
+                Label = p.Nombre,
+                Address = p.Direccion,
+                Location = new Location(p.Latitud, p.Longitud),
+                Type = PinType.Place
+            };
+
+            pin.MarkerClicked += async (s, args) =>
+            {
+                args.HideInfoWindow = true;
+                await DisplayAlert("Patrocinador", $"{p.Nombre}\n{p.Direccion}", "OK");
+            };
+
+            MyMap.Pins.Add(pin);
         }
     }
 }
