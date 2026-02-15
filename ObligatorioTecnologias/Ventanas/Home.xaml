@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ObligatorioTecnologias.Ventanas.Home"
+             Title="Home">
+    <VerticalStackLayout Padding="30" Spacing="20">
+        <Image Source="fmlogo.png" HeightRequest="400" HorizontalOptions="Center"/>
+
+        <Label Text="FM Punta" 
+               FontFamily="Empty"
+               FontSize="50" 
+               FontAttributes="Bold"
+               CharacterSpacing="3"
+               HorizontalOptions="Center"
+               TextColor="#1565C0"/>
+
+        <WebView x:Name="webRadio" HeightRequest="80" WidthRequest="300" BackgroundColor="#64B5F6"/>
+
+        <HorizontalStackLayout Spacing="12" HorizontalOptions="Center">
+            <Button Text="▶️ Play" BackgroundColor="#1976D2" TextColor="White"/>
+            <Button Text="⏸️ Pausa" BackgroundColor="#2196F3" TextColor="White"/>
+            <Button Text="⏹️ Stop" BackgroundColor="#64B5F6" TextColor="White"/>
+        </HorizontalStackLayout>
+
+        <StackLayout>
+            <Label Text="Volumen" TextColor="#1565C0"/>
+            <Slider x:Name="VolumeSlider" Minimum="0" Maximum="1" Value="0.8"
+                    ThumbColor="#1976D2" MinimumTrackColor="#2196F3" MaximumTrackColor="#BBDEFB"/>
+        </StackLayout>
+
+        <Label x:Name="StatusLabel"
+               Text="Listo"
+               HorizontalOptions="Center"
+               FontAttributes="Italic"
+               TextColor="#1976D2"/>
+    </VerticalStackLayout>
+</ContentPage>

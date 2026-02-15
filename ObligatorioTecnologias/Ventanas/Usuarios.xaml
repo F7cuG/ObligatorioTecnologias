@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ObligatorioTecnologias.Ventanas.Usuarios"
+             Title="Registro de Usuario">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="Registro de Usuario" FontSize="24" HorizontalOptions="Center" />
+
+            <Entry x:Name="entryNombreUsuario" Placeholder="Nombre de usuario" />
+            <Entry x:Name="entryContrasena" Placeholder="Contraseña" IsPassword="True" />
+            <Entry x:Name="entryNombreCompleto" Placeholder="Nombre completo" />
+            <Entry x:Name="entryDireccion" Placeholder="Dirección" />
+            <Entry x:Name="entryTelefono" Placeholder="Teléfono" Keyboard="Telephone" />
+            <Entry x:Name="entryEmail" Placeholder="Email" Keyboard="Email" />
+
+            <Image x:Name="imgFotoPerfil" HeightRequest="120" WidthRequest="120" Aspect="AspectFill" BackgroundColor="#EEE" />
+            <HorizontalStackLayout>
+                <Button Text="Tomar Selfie" Clicked="OnTomarSelfieClicked" />
+                <Button Text="Seleccionar Foto" Clicked="OnSeleccionarFotoClicked" />
+            </HorizontalStackLayout>
+
+            <Button Text="Registrar" Clicked="OnRegistrarClicked" />
+            <Button Text="Volver" Clicked="OnVolverClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

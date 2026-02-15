@@ -1,15 +1,34 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Shell
     x:Class="ObligatorioTecnologias.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:ObligatorioTecnologias"
-    Shell.FlyoutBehavior="Disabled"
-    Title="ObligatorioTecnologias">
+    xmlns:ventanas="clr-namespace:ObligatorioTecnologias.Ventanas"
+    Shell.FlyoutBehavior="Flyout">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <FlyoutItem Title="Home" Route="home" Icon="homelogo.png">
+        <ShellContent ContentTemplate="{DataTemplate ventanas:Home}"  />
+    </FlyoutItem>
+    <FlyoutItem Title="Clima" Route="clima" Icon="climalogo.png">
+        <ShellContent ContentTemplate="{DataTemplate ventanas:Clima}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Cotizaciones" Route="cotizaciones" Icon="cotizacioneslogo.png">
+        <ShellContent ContentTemplate="{DataTemplate ventanas:Cotizaciones}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Noticias" Route="noticias" Icon="noticiaslogo.png">
+        <ShellContent ContentTemplate="{DataTemplate ventanas:Noticias}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Cine" Route="cine" Icon="cinelogo.png" >
+        <ShellContent ContentTemplate="{DataTemplate ventanas:Cine}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Patrocinadores" Route="patrocinadores" Icon="patrocinadoreslogo.png" >
+        <ShellContent ContentTemplate="{DataTemplate ventanas:Patrocinadores}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Settings" Route="settings" Icon="settingslogo.png">
+        <ShellContent ContentTemplate="{DataTemplate ventanas:Settings}" />
+    </FlyoutItem>
 
+    <FlyoutItem Title="Patrocinadores*" Route="patrocinadoresoffline" Icon="patrocinadoreslogo.png">
+        <ShellContent ContentTemplate="{DataTemplate ventanas:PatrocinadoresOffline}" />
+    </FlyoutItem>
 </Shell>

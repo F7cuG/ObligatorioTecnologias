@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ObligatorioTecnologias.Ventanas.Noticias"
+             Title="Noticias Uruguay">
+
+    <VerticalStackLayout Padding="10" Spacing="10">
+        <!-- Barra de búsqueda -->
+        <HorizontalStackLayout Spacing="5">
+            <Entry x:Name="BusquedaEntry"
+                   Placeholder="Buscar por palabra clave o categoría"
+                   HorizontalOptions="FillAndExpand"/>
+            <Button Text="Buscar" Clicked="OnBuscarClicked"/>
+        </HorizontalStackLayout>
+
+        <!-- Lista -->
+        <CollectionView x:Name="NoticiasCollection" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="LightGray" CornerRadius="8" Padding="10" Margin="0,5">
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="{Binding title}" FontAttributes="Bold" FontSize="18"/>
+                            <Image Source="{Binding image_url}" Aspect="AspectFill" HeightRequest="150"/>
+                            <Label Text="{Binding description}" FontSize="14" LineBreakMode="WordWrap" MaxLines="3"/>
+                            <Button Text="Ver más"
+                                    CommandParameter="{Binding link}"
+                                    Clicked="OnAbrirEnlaceClicked"
+                                    BackgroundColor="#007ACC"
+                                    TextColor="White"
+                                    CornerRadius="5"
+                                    HeightRequest="35"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

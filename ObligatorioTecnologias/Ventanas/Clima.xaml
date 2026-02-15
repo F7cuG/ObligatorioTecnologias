@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ObligatorioTecnologias.Ventanas.Clima"
+             Title="Clima">
+            
+    <VerticalStackLayout Padding="20" Spacing="15"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center">
+        <Label Text="Punta del Este" FontAttributes="Bold"/>   
+        <!-- Icono --> 
+        <Image x:Name="imgIcono"
+               WidthRequest="100"
+               HeightRequest="100"
+               Opacity="0" />
+
+        <!-- Texto -->
+        <Label 
+            x:Name="lblClima"
+            Text="Cargando clima..."
+            FontSize="22"
+            TextColor="Black"
+            HorizontalTextAlignment="Center" />
+
+        <Label Text="Próximos 5 días" FontAttributes="Bold" />
+
+        <ActivityIndicator x:Name="activity" IsVisible="False" IsRunning="False" />
+
+        <CollectionView x:Name="collectionPronostico">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="0,6" ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto">
+                        <Image Source="{Binding IconUrl}" WidthRequest="40" HeightRequest="40" Grid.RowSpan="2" />
+                        <Label Text="{Binding Fecha, StringFormat='{}{0:ddd dd}'}"
+                           FontAttributes="Bold" Grid.Column="1"/>
+                        <Label Text="{Binding Descripcion}" Grid.Column="1" Grid.Row="1"/>
+                        <HorizontalStackLayout Grid.Column="2" VerticalOptions="Center" Spacing="8">
+                            <Label Text="{Binding Max, StringFormat='↑{0:F0}°'}"/>
+                            <Label Text="{Binding Min, StringFormat='↓{0:F0}°'}"/>
+                        </HorizontalStackLayout>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
